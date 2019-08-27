@@ -34,6 +34,9 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/dvt282/Connect-SDK-iOS.git",
                      :tag => s.version,
                      :submodules => false }
+  s.dependency 'google-cast-sdk'
+  s.static_framework = true
+
 
   s.xcconfig = {
       "OTHER_LDFLAGS" => "$(inherited) -ObjC"
@@ -103,19 +106,4 @@ Pod::Spec.new do |s|
     sp.compiler_flags = '-w'
   end
 
-  s.subspec 'GoogleCast' do |sp|
-    cast_dir = "modules/google-cast"
-
-    sp.dependency 'ConnectSDK/Core'
-    sp.source_files = "#{cast_dir}/**/*.{h,m}"
-    sp.exclude_files = "#{cast_dir}/*Tests/**/*"
-    sp.private_header_files = "#{cast_dir}/**/*_Private.h"
-
-    cast_version = "4.4.2"
-    sp.dependency "google-cast-sdk", cast_version
-    sp.framework = "GoogleCast"
-    sp.xcconfig = {
-        "FRAMEWORK_SEARCH_PATHS" => "$(PODS_ROOT)/google-cast-sdk/GoogleCastSDK-#{cast_version}-Release",
-    }
-  end
 end
