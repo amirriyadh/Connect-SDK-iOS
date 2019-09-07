@@ -34,7 +34,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/dvt282/Connect-SDK-iOS.git",
                      :tag => s.version,
                      :submodules => false }
-  s.dependency 'google-cast-sdk', '~> 4.4.2'
+  s.dependency 'google-cast-sdk'
   s.static_framework = true
 
 
