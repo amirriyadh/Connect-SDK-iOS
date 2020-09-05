@@ -22,8 +22,9 @@
 #import "ConnectError.h"
 
 #import "NSObject+FeatureNotSupported_Private.h"
+#import <WebKit/WebKit.h>
 
-@interface AirPlayService () <UIWebViewDelegate, ServiceCommandDelegate, UIAlertViewDelegate>
+@interface AirPlayService () <WKUIDelegate, ServiceCommandDelegate, UIAlertViewDelegate>
 
 @end
 
@@ -175,7 +176,7 @@ static AirPlayServiceMode airPlayServiceMode;
     mediaInfo.description = description;
     ImageInfo *imageInfo = [[ImageInfo alloc] initWithURL:iconURL type:ImageTypeThumb];
     [mediaInfo addImage:imageInfo];
-    
+
     [self displayImageWithMediaInfo:mediaInfo success:^(MediaLaunchObject *mediaLanchObject) {
         success(mediaLanchObject.session,mediaLanchObject.mediaControl);
     } failure:failure];
@@ -190,7 +191,7 @@ static AirPlayServiceMode airPlayServiceMode;
         ImageInfo *imageInfo = [mediaInfo.images firstObject];
         iconURL = imageInfo.url;
     }
-    
+
     [self displayImage:mediaInfo.url iconURL:iconURL title:mediaInfo.title description:mediaInfo.description mimeType:mediaInfo.mimeType success:success failure:failure];
 }
 
@@ -395,3 +396,4 @@ static AirPlayServiceMode airPlayServiceMode;
 }
 
 @end
+
