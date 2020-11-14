@@ -244,8 +244,8 @@
 
 - (void) startSSIDTimer
 {
-    _ssidTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(detectSSIDChange) userInfo:nil repeats:YES];
-    [_ssidTimer fire];
+//    _ssidTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(detectSSIDChange) userInfo:nil repeats:YES];
+//    [_ssidTimer fire];
 }
 
 - (void) stopSSIDTimer

@@ -44,7 +44,7 @@
  *
  * @param device ConnectableDevice that has been disconnected.
  */
-- (void) connectableDeviceDisconnected:(ConnectableDevice *)device withError:(NSError *)error;
+- (void) connectableDeviceDisconnected:(ConnectableDevice *)device;
 
 @optional
 

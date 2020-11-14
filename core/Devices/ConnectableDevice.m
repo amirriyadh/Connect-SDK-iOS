@@ -220,7 +220,7 @@
 
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kConnectSDKWirelessSSIDChanged object:nil];
 
-    dispatch_on_main(^{ [self.delegate connectableDeviceDisconnected:self withError:nil]; });
+    dispatch_on_main(^{ [self.delegate connectableDeviceDisconnected:self]; });
 }
 
 - (BOOL) isConnectable
@@ -431,7 +431,7 @@
 {
     // TODO: need to aggregate errors between disconnects
     if ([self connectedServiceCount] == 0 || _services.count == 0)
-        dispatch_on_main(^{ [self.delegate connectableDeviceDisconnected:self withError:error]; });
+        dispatch_on_main(^{ [self.delegate connectableDeviceDisconnected:self]; });
 
     if (self.delegate && [self.delegate respondsToSelector:@selector(connectableDevice:service:disconnectedWithError:)])
         dispatch_on_main(^{ [self.delegate connectableDevice:self service:service disconnectedWithError:error]; });
